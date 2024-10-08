@@ -38,7 +38,7 @@ func main() {
 	flag.Parse()
 	rand.Seed(time.Now().UnixNano())
 	rpc.Register(&SecretStringOperations{})
-	listener, _ := net.Listen("tcp", ":"+*pAddr)
+	listener, _ := net.Listen("tcp", *pAddr)
 	defer listener.Close()
 	rpc.Accept(listener)
 }
